@@ -1,7 +1,7 @@
 # -*-encoding: UTF-8 -*-
 import abc
 
-LIMITE_FILA = 100
+from Constantes import TAMANHO_MAXIMO_FILA, TAMANHO_MINIMO_FILA
 
 
 class FilaBase(metaclass=abc.ABCMeta):
@@ -37,8 +37,8 @@ class FilaBase(metaclass=abc.ABCMeta):
 
     # Definição de metodos comuns
     def reseta_fila(self) -> None:
-        if self.__codigo >= LIMITE_FILA:
-            self.__codigo = 0
+        if self.__codigo >= TAMANHO_MAXIMO_FILA:
+            self.__codigo = TAMANHO_MINIMO_FILA
         else:
             self.__codigo += 1
 
