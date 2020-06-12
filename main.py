@@ -1,4 +1,3 @@
-
 from FilaFactory import FilaFactory
 from Constantes import TIPO_FILA_NORMAL, TIPO_FILA_PRIORITARIA
 
