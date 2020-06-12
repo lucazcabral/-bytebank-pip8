@@ -8,7 +8,6 @@ fila_normal.atualiza_fila()
 print(fila_normal.chama_cliente(5))
 print(fila_normal.chama_cliente(10))
 
-
 fila_prioritaria = FilaPrioritaria()
 fila_prioritaria.atualiza_fila()
 fila_prioritaria.atualiza_fila()
