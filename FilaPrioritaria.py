@@ -1,4 +1,6 @@
 # -*-encoding: UTF-8 -*-
+from typing import Dict, List, Union
+
 from FilaBase import FilaBase
 from Constantes import PREFIXO_FILA_PRIORITARIA
 
@@ -9,7 +11,7 @@ class FilaPrioritaria(FilaBase):
         self.set_senha_atual(f'{PREFIXO_FILA_PRIORITARIA}{self.get_codigo()}')
 
     def estatistica(self, dia: str, agencia: str, flag: str) -> dict:
-        estatistica: dict = {}
+        estatistica: Dict[str, Union[List[str], str, int]] = {}
         if flag != 'detail':
             estatistica[f'{agencia} - {dia}'] = (
                 len(self.get_clientes_atendidos())

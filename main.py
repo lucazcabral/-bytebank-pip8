@@ -1,16 +1,17 @@
-from FilaNormal import FilaNormal
-from FilaPrioritaria import FilaPrioritaria
 
-fila_normal = FilaNormal()
-fila_normal.atualiza_fila()
-fila_normal.atualiza_fila()
-fila_normal.atualiza_fila()
-print(fila_normal.chama_cliente(5))
-print(fila_normal.chama_cliente(10))
+from FilaFactory import FilaFactory
+from Constantes import TIPO_FILA_NORMAL, TIPO_FILA_PRIORITARIA
 
-fila_prioritaria = FilaPrioritaria()
-fila_prioritaria.atualiza_fila()
-fila_prioritaria.atualiza_fila()
-fila_prioritaria.atualiza_fila()
-print(fila_prioritaria.chama_cliente(3))
-print(fila_prioritaria.chama_cliente(7))
+fila1 = FilaFactory.pega_fila(TIPO_FILA_NORMAL)
+fila1.atualiza_fila()
+fila1.atualiza_fila()
+fila1.atualiza_fila()
+print(fila1.chama_cliente(8))
+print(fila1.chama_cliente(15))
+
+fila2 = FilaFactory.pega_fila(TIPO_FILA_PRIORITARIA)
+fila2.atualiza_fila()
+fila2.atualiza_fila()
+fila2.atualiza_fila()
+print(fila2.chama_cliente(6))
+print(fila2.chama_cliente(2))

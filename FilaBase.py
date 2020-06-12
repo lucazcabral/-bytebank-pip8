@@ -1,13 +1,14 @@
 # -*-encoding: UTF-8 -*-
 import abc
+from typing import Dict, Union, List
 
 from Constantes import TAMANHO_MAXIMO_FILA, TAMANHO_MINIMO_FILA
 
 
 class FilaBase(metaclass=abc.ABCMeta):
     __codigo: int = 0
-    __fila: list = []
-    __clientes_atendidos: list = []
+    __fila: List[str] = []
+    __clientes_atendidos: List[str] = []
     __senha_atual: str = ''
 
     # Getters and Setters
@@ -32,7 +33,11 @@ class FilaBase(metaclass=abc.ABCMeta):
         ...
 
     @abc.abstractmethod
-    def estatistica(self, dia: str, agencia: str, flag: str) -> dict:
+    def estatistica(
+            self,
+            dia: str,
+            agencia: str,
+            flag: str) -> (Dict[str, Union[List[str], str, int]]):
         ...
 
     # Definição de metodos comuns

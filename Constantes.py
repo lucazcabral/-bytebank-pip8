@@ -1,4 +1,6 @@
 # -*-encoding: UTF-8 -*-
+TIPO_FILA_NORMAL = 'normal'
+TIPO_FILA_PRIORITARIA = 'prioritaria'
 
 PREFIXO_FILA_NORMAL = 'NR'
 PREFIXO_FILA_PRIORITARIA = 'PR'
