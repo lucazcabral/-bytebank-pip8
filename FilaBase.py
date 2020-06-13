@@ -7,6 +7,9 @@ from EstatisticaResumida import EstatisticaResumida
 from EstatisticaDetalhada import EstatisticaDetalhada
 
 
+ClassesEstatisticas = Union[EstatisticaDetalhada, EstatisticaResumida]
+
+
 class FilaBase(metaclass=abc.ABCMeta):
     __codigo: int = 0
     __fila: List[str] = []
@@ -56,11 +59,8 @@ class FilaBase(metaclass=abc.ABCMeta):
 
     def estatistica(
             self,
-            classe_estatistica: Union[(
-                    EstatisticaDetalhada,
-                    EstatisticaResumida
-            )]
-            ) -> Dict[str, Union[List[str], str, int]]:
+            classe_estatistica: ClassesEstatisticas
+    ) -> Dict[str, Union[List[str], str, int]]:
         return classe_estatistica.roda_estatistica(
             self.get_clientes_atendidos()
         )
