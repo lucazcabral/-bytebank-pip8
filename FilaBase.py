@@ -3,6 +3,8 @@ import abc
 from typing import Dict, Union, List
 
 from Constantes import TAMANHO_MAXIMO_FILA, TAMANHO_MINIMO_FILA
+from EstatisticaResumida import EstatisticaResumida
+from EstatisticaDetalhada import EstatisticaDetalhada
 
 
 class FilaBase(metaclass=abc.ABCMeta):
@@ -32,14 +34,6 @@ class FilaBase(metaclass=abc.ABCMeta):
     def gera_senha_atual(self) -> None:
         ...
 
-    @abc.abstractmethod
-    def estatistica(
-            self,
-            dia: str,
-            agencia: str,
-            flag: str) -> (Dict[str, Union[List[str], str, int]]):
-        ...
-
     # Definição de metodos comuns
     def reseta_fila(self) -> None:
         if self.__codigo >= TAMANHO_MAXIMO_FILA:
@@ -59,3 +53,14 @@ class FilaBase(metaclass=abc.ABCMeta):
         cliente_atual = self.get_fila().pop(0)
         self.get_clientes_atendidos().append(cliente_atual)
         return f'Caixa {caixa} livre. Senha {cliente_atual} chamada.'
+
+    def estatistica(
+            self,
+            classe_estatistica: Union[(
+                    EstatisticaDetalhada,
+                    EstatisticaResumida
+            )]
+            ) -> Dict[str, Union[List[str], str, int]]:
+        return classe_estatistica.roda_estatistica(
+            self.get_clientes_atendidos()
+        )
